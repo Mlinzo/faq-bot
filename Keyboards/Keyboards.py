@@ -12,5 +12,5 @@ class Keyboards():
 
     @property
     def questions(self) -> types.InlineKeyboardMarkup:
-        buttons = [ [types.InlineKeyboardButton(q, callback_data=q_hash)] for q, q_hash in zip(self._answers, answers.question_hashes)]
+        buttons = [ [types.InlineKeyboardButton(q, callback_data=q_hash)] for q, q_hash in zip(self._answers, answers.question_hashes) ]
         return types.InlineKeyboardMarkup(inline_keyboard=buttons)
