@@ -1,5 +1,6 @@
 from aiogram import Bot, Dispatcher, executor, types
 from aiogram.dispatcher.filters import Text
+from aiogram.utils.markdown import link
 import os
 
 from Answers import answers
@@ -24,7 +25,7 @@ async def questions_handler(message: types.Message):
 async def answer_handler(callback: types.CallbackQuery):
     question = answers.question_hashes[callback.data]
     await callback.answer()
-    await callback.message.answer(answers[question])
+    await callback.message.answer(answers[question], parse_mode='Markdown')
 
 if __name__ == '__main__':
     executor.start_polling(dp, skip_updates=True)
