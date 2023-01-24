@@ -4,7 +4,7 @@ from Answers import answers
 class Keyboards():
     def __init__(self):
         self._answers = answers
-        self.main_label = 'Часто задаваемые вопросы'
+        self.main_label = 'Поширені питання'
     
     @property
     def main(self) -> types.ReplyKeyboardMarkup:
