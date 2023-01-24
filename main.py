@@ -25,7 +25,9 @@ async def questions_handler(message: types.Message):
 async def answer_handler(callback: types.CallbackQuery):
     question = answers.question_hashes[callback.data]
     await callback.answer()
-    await callback.message.answer(answers[question], parse_mode='Markdown')
+    await callback.message.edit_reply_markup(None)
+    await callback.message.answer(answers[question], parse_mode='Markdown', reply_markup=keyboards.questions)
+
 
 if __name__ == '__main__':
     executor.start_polling(dp, skip_updates=True)
